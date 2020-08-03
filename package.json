@@ -1,0 +1,52 @@
+{
+  "name": "node-js-2020-q3",
+  "version": "1.0.0",
+  "description": "\u001b[2~\u001b[2~\u0016NodeJS Global Mentoring Program 2020Q3",
+  "author": "artsiom_peshko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artsiompeshko/node-js-2020-q3/issues"
+  },
+  "homepage": "https://github.com/artsiompeshko/node-js-2020-q3#readme",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "format": "prettier --write \"./**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"./**/*.ts\" --fix",
+    "task:01:1": "nodemon ./01.1",
+    "task:01:1:v2": "nodemon ./01.1/index_v2.ts",
+    "task:01:2": "nodemon ./01.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsiompeshko/node-js-2020-q3.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  }
+}
