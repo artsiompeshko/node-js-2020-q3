@@ -18,6 +18,7 @@ module.exports = {
   },
   rules: {
     'no-restricted-syntax': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {
