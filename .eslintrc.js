@@ -19,6 +19,7 @@ module.exports = {
   rules: {
     'no-restricted-syntax': 'off',
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
   },
   settings: {
     'import/resolver': {
