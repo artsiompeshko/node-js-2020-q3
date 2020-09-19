@@ -21,7 +21,7 @@ const validationErrorMiddleware = (
   }
 };
 
-const errorMiddleware = (err: any, req: Request, res: Response): void => {
+const errorMiddleware = (err: any, req: Request, res: Response, next: NextFunction): void => {
   res.status(500).send(err);
 };
 
