@@ -1,4 +1,4 @@
-import { UserModel } from '03.1/models/user/user.module';
+import { UserModel } from '03.1/models/user/user.model';
 import { User } from '03.1/interfaces/user/user.interface';
 
 const convertModelToUser = (userModel: UserModel): User => {
