@@ -1,4 +1,4 @@
-import { UserModel } from '03.1/models/user/user.module';
+import { UserModel } from '03.1/models/user/user.model';
 import { User, CreateUserInputDto, UpdateUserInputDto } from '03.1/interfaces/user/user.interface';
 import { userConverter } from '03.1/converters/user/user.converter';
 
