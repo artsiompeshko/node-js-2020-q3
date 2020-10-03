@@ -2,6 +2,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { ExpressJoiError } from 'express-joi-validation';
 
+import { logger } from '03.1/lib/logger';
+
 // error, plus an extra "type" field so we can tell what type of validation failed
 const validationErrorMiddleware = (
   err: any | ExpressJoiError,
@@ -22,6 +24,15 @@ const validationErrorMiddleware = (
 };
 
 const errorMiddleware = (err: any, req: Request, res: Response, next: NextFunction): void => {
+  const { method, query, body, originalUrl } = req;
+  const queryStr = JSON.stringify(query);
+  const bodyStr = JSON.stringify(body);
+
+  logger.error({
+    message: `${method} ${originalUrl} ${bodyStr} ${queryStr} ${err.message}`,
+    label: 'error-middleware',
+  });
+
   res.status(500).send(err);
 };
 

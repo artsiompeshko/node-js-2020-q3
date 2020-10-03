@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 
-import { expressLoader, dbLoader, controllerLoggerLoader } from '03.1/loaders';
+import { expressLoader, dbLoader, controllerLoggerLoader, processErrorsLoader } from '03.1/loaders';
 
 const port: number = +process.env.PORT || 3000;
 
@@ -16,4 +16,15 @@ async function startServer() {
   });
 }
 
+processErrorsLoader();
 startServer();
+
+// test uncaught exception
+// setTimeout(() => {
+//   throw new Error('uncaught exception');
+// }, 5000);
+
+// test unhandled rejection
+// setTimeout(() => {
+//   Promise.reject(new Error('promise rejected'));
+// }, 5000);
