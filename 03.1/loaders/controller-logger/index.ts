@@ -13,8 +13,8 @@ morgan.token('args', (req: Request): string => {
   return 'no args';
 });
 
-const morganLoader = async (app: Application): Promise<void> => {
+const controllerLoggerLoader = async (app: Application): Promise<void> => {
   app.use(morgan(':method :url :args :response-time'));
 };
 
-export default morganLoader;
+export default controllerLoggerLoader;
