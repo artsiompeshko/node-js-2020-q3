@@ -16,7 +16,11 @@
     "task:01:1:v2": "nodemon ./01.1/index_v2.ts",
     "task:01:2": "nodemon ./01.2",
     "task:02:1": "nodemon ./02.1/app.ts",
-    "task:03:1": "nodemon ./03.1/app.ts"
+    "task:03:1": "nodemon ./03.1/app.ts",
+    "task:04:1": "nodemon ./03.1/app.ts",
+    "task:05:1": "nodemon ./03.1/app.ts",
+    "task:05:2": "nodemon ./03.1/app.ts",
+    "task:05:3": "nodemon ./03.1/app.ts"
   },
   "repository": {
     "type": "git",

@@ -1,12 +1,13 @@
 import express, { Application } from 'express';
 
-import { expressLoader, dbLoader } from '03.1/loaders';
+import { expressLoader, dbLoader, morganLoggerLoader } from '03.1/loaders';
 
 const port: number = +process.env.PORT || 3000;
 
 async function startServer() {
   const app: Application = express();
 
+  await morganLoggerLoader(app);
   await expressLoader(app);
   await dbLoader();
 
