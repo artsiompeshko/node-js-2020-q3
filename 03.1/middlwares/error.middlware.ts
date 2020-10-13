@@ -2,6 +2,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { ExpressJoiError } from 'express-joi-validation';
 
+import { logger } from '03.1/lib/logger';
+import { escapePassword } from '03.1/lib/utils/escape';
+
 // error, plus an extra "type" field so we can tell what type of validation failed
 const validationErrorMiddleware = (
   err: any | ExpressJoiError,
@@ -22,7 +25,16 @@ const validationErrorMiddleware = (
 };
 
 const errorMiddleware = (err: any, req: Request, res: Response, next: NextFunction): void => {
-  res.status(500).send(err);
+  const { method, query, body, originalUrl } = req;
+  const queryStr = JSON.stringify(query);
+  const bodyStr = JSON.stringify(escapePassword(body));
+
+  logger.error({
+    message: `${method} ${originalUrl} ${bodyStr} ${queryStr} ${err.message}`,
+    label: 'error-middleware',
+  });
+
+  res.status(500).send('Internal Server Error');
 };
 
 export { validationErrorMiddleware, errorMiddleware };
