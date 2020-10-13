@@ -4,6 +4,8 @@ import path from 'path';
 import { Application, Request } from 'express';
 import morgan from 'morgan';
 
+import { escapePassword } from '03.1/lib/utils/escape';
+
 // create a write stream (in append mode)
 const errorLogStream = fs.createWriteStream(path.join(process.cwd(), 'controller-logs.log'), {
   flags: 'a',
@@ -11,7 +13,7 @@ const errorLogStream = fs.createWriteStream(path.join(process.cwd(), 'controller
 
 morgan.token('args', (req: Request): string => {
   if (req.body && Object.keys(req.body).length) {
-    return JSON.stringify(req.body);
+    return JSON.stringify(escapePassword(req.body));
   }
 
   if (req.query && Object.keys(req.query).length) {
