@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
-// error, plus an extra "type" field so we can tell what type of validation failed
 const tokenCheckMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers['x-access-token'] as string;
   const secret = process.env.ACCESS_TOKEN_SECRET;
