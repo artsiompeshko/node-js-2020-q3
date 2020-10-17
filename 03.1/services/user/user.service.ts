@@ -13,6 +13,10 @@ async function find(id: number): Promise<User> {
   return userRepository.find(id);
 }
 
+async function findByCredentials(login: string, password: string): Promise<User> {
+  return userRepository.findByCredentials(login, password);
+}
+
 async function remove(id: number): Promise<boolean> {
   return userRepository.remove(id);
 }
@@ -32,6 +36,7 @@ const userService = {
   remove,
   update,
   suggest,
+  findByCredentials,
 };
 
 export { userService };

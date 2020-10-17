@@ -1,6 +1,9 @@
 import express, { Application } from 'express';
+import dotenv from 'dotenv';
 
 import { expressLoader, dbLoader, controllerLoggerLoader, processErrorsLoader } from '03.1/loaders';
+
+dotenv.config();
 
 const port: number = +process.env.PORT || 3000;
 
