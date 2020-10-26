@@ -28,6 +28,18 @@ async function find(id: number): Promise<User> {
   return userConverter.convertModelToUser(userModel);
 }
 
+async function findByCredentials(login: string, password: string): Promise<User> {
+  const userModel = await UserModel.findOne({
+    where: { login, password },
+  });
+
+  if (!userModel) {
+    return null;
+  }
+
+  return userConverter.convertModelToUser(userModel);
+}
+
 async function remove(id: number): Promise<boolean> {
   if (!id) {
     return null;
@@ -80,6 +92,7 @@ const userRepository = {
   findAll,
   add,
   find,
+  findByCredentials,
   remove,
   update,
   suggest,
