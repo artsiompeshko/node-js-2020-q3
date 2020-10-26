@@ -20,6 +20,7 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
+    'no-underscore-dangle': 'off',
   },
   settings: {
     'import/resolver': {

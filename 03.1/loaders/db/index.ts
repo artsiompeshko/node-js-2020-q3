@@ -3,9 +3,7 @@ import { Sequelize } from 'sequelize';
 import { init as initModels } from '03.1/models';
 
 const dbLoader = async (): Promise<Sequelize> => {
-  const sequelize = new Sequelize(
-    'postgres://master:admin123@node-js-2020-q3.cev5zkg19b7z.eu-west-1.rds.amazonaws.com:5432/postgres',
-  );
+  const sequelize = new Sequelize(process.env.DB_URI);
 
   await sequelize.authenticate();
 
